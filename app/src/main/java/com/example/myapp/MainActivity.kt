@@ -14,7 +14,7 @@ import com.example.myapp.databinding.FragmentHomefragBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
-//    var pfl = findViewById<ImageView>(R.id.profile_icon)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,10 +25,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//        pfl.setOnClickListener {
-//            binding.menubar.setItemSelected(R.id.item2)
-//            repl(profile())
-//        }
+
         binding.menubar.setItemSelected(R.id.item0)
         repl(homefrag())
         binding.menubar.setOnItemSelectedListener {
@@ -43,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+//    A fxn for replacing a fragment with container
      fun repl(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
