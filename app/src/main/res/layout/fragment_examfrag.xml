@@ -112,10 +112,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_27sdp"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_21sdp"
                 android:fontFamily="@font/inter_bold"
                 android:text="1 Jan 2023"
                 android:textColor="#989AA6"
                 android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/examtxt" />
 
