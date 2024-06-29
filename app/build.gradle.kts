@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation ("io.github.shashank02051997:FancyToast:2.0.2")
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+//    below two are for scaling of both sp and dp
     implementation ("com.intuit.sdp:sdp-android:1.1.1")
     implementation ("com.intuit.ssp:ssp-android:1.1.1")
     implementation(libs.androidx.core.ktx)
