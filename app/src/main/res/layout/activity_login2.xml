@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".login2">
+
+    <TextView
+        android:id="@+id/dhacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_154sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Don’t have an account?"
+        android:textColor="#FFF"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emlsgnup" />
+
+    <EditText
+        android:id="@+id/pwdsgnup"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_37sdp"
+        android:layout_marginTop="@dimen/_43sdp"
+        android:background="@drawable/rect_txt"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:inputType="textPassword"
+        android:paddingStart="@dimen/_14sdp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emlsgnup" />
+
+    <TextView
+        android:id="@+id/textpwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_21sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Password"
+        android:textColor="#000"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="@+id/emlsgnup"
+        app:layout_constraintTop_toBottomOf="@+id/emlsgnup" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_46sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Log in to Orbit"
+        android:textColor="#FFF"
+        android:textSize="@dimen/_23ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signinG"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_43sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:backgroundTint="#000"
+        android:drawableLeft="@drawable/search"
+        android:fontFamily="@font/inter_bold"
+        android:paddingStart="@dimen/_46sdp"
+        android:paddingEnd="@dimen/_46sdp"
+        android:text="Sign in with Google"
+        android:textColor="#FFF"
+        android:textSize="@dimen/_11ssp"
+        app:cornerRadius="@dimen/_38sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:rippleColor="#50FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Or log in with Email"
+        android:textColor="#000"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinG" />
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_23sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/signinG"
+        app:srcCompat="@drawable/line" />
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_23sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinG"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/emailtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_39sdp"
+        android:layout_marginEnd="@dimen/_137sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Email"
+        android:textColor="#000"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <EditText
+        android:id="@+id/emlsgnup"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_37sdp"
+        android:layout_marginTop="@dimen/_61sdp"
+        android:background="@drawable/rect_txt"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:inputType="text"
+        android:paddingStart="@dimen/_14sdp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_21sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Forgot?"
+        android:textColor="#000"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="@+id/emlsgnup"
+        app:layout_constraintTop_toBottomOf="@+id/emlsgnup" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/_193sdp"
+        android:layout_height="@dimen/_177sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/reflecting17" />
+
+    <TextView
+        android:id="@+id/sgnuptxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_132sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Sign up"
+        android:textColor="#000"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgot" />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="@dimen/_138sdp"
+        android:layout_height="@dimen/_43sdp"
+        android:layout_marginTop="@dimen/_92sdp"
+        android:backgroundTint="#000"
+        android:fontFamily="@font/inter_bold"
+        android:text="Log in"
+        android:textColor="#FFF"
+        android:textSize="@dimen/_11ssp"
+        app:cornerRadius="@dimen/_38sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emlsgnup"
+        app:rippleColor="#50FFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

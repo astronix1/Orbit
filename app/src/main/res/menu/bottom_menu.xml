@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item0"
+        app:cnb_iconColor="@color/bg"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/item1"
+        app:cnb_iconColor="@color/bg"
+        android:title="Exam"
+        android:icon="@drawable/exam"/>
+
+    <item
+        android:id="@+id/item2"
+        app:cnb_iconColor="@color/bg"
+        android:title="Account"
+        android:icon="@drawable/account"/>
+
+</menu>
