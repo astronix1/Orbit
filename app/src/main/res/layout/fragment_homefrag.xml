@@ -19,7 +19,7 @@
         android:paddingStart="@dimen/_4sdp"
         android:text="Hello!"
         android:textColor="#000"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintStart_toEndOf="@+id/profile_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,6 +116,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginStart="@dimen/_11sdp"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:fontFamily="@font/raleway_semibold"
@@ -185,6 +186,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginStart="@dimen/_11sdp"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:fontFamily="@font/raleway_semibold"
@@ -253,6 +255,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginStart="@dimen/_11sdp"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:fontFamily="@font/raleway_semibold"
