@@ -21,9 +21,9 @@ import java.time.temporal.ChronoUnit
 class examfrag : Fragment() {
     data class exdate(val d: Int?, val m: Int?, val y: Int?, val dl: Long?)
     data class examname(val i: Int?, val name_of_exam: String?)
-    data class exn(val i: String?, val name_of_exam: String?)
-    data class exd(val d: String?, val m: String?, val y: String?, val dl: String?)
 
+    var nnn:Int = -1
+    var nmnm:String =""
     val monthsList =
         listOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
     private lateinit var binding: FragmentExamfragBinding
@@ -61,63 +61,54 @@ class examfrag : Fragment() {
             db.reference.child("users").child(usrid).get().addOnSuccessListener { snp->
                 if (snp.exists()){
                     Log.d("patt","snap exists")
-                    val userData = snp.value as? Map<String, Any>
-                    userData?.let {
-                        val examName = exn(
-                            i = userData["i"] as? String?,
-                            name_of_exam = userData["name_of_exam"] as? String ?
-
-                        )
-
-                        val examDate = exd(
-                            d = userData["d"] as? String ?,
-                            m = userData["m"] as? String ?,
-                            y = userData["y"] as? String ?,
-                            dl = userData["dl"] as? String ?
-                        )
-                        Log.d("patt","data succesfully fetched ${examDate.y}  ${examDate.d} ${examDate.m} ")
-                        if (examDate.d!=null && examDate.y!=null && examDate.m!=null && examDate.dl!=null && examName.i!=null && examName.name_of_exam!=null){
-                            Log.d("patt","data on server not null")
-                            binding.textView65.text = examDate.dl.toString()
-                            binding.textView17.text = examDate.y.toString()
-                            binding.textView16.text = "${examDate.d} ${monthsList[(examDate.m).toInt()]} ${examDate.y}"
-                            if ((examName.i).toInt() == 0 || (examName.i).toInt() == 2) {
-                                binding.imageView13.setImageResource(R.drawable.ntta)
-                            } else {
-                                binding.imageView13.setImageResource(R.drawable.adv)
-                            }
-                            binding.examtxt.text = examName.name_of_exam
-                            binding.spinkro.setSelection((examName.i).toInt())
+                    val d = snp.child("d").value
+                    val m = snp.child("m").value
+                    val y = snp.child("y").value
+                    val dl = snp.child("dl").value
+                    val i: Any? = snp.child("i").value
+                    val name_of_exam = snp.child("name_of_exam").value
+                    Log.d("patt", "data on server : $d $m $y $dl $i $name_of_exam")
+                    if (d!=null && y!=null && m!=null && dl!=null && i!=null && name_of_exam!=null){
+                        Log.d("patt","data on server not null")
+                        binding.textView65.text = dl.toString()
+                        binding.textView17.text = " " + y.toString()
+                        val mm = m.toString()
+                        val ii = i.toString()
+                        Log.d("patt","mm $mm")
+                        if (mm!=null){
+                            binding.textView16.text = "${d} ${monthsList[(mm.toInt())]} ${y}"
                         }
-
-
+                        if ((i).toString() == "0" || (i).toString() == "2") {
+                            binding.imageView13.setImageResource(R.drawable.ntta)
+                        } else {
+                            binding.imageView13.setImageResource(R.drawable.adv)
+                        }
+                        binding.examtxt.text =name_of_exam.toString()
+                        if (ii!=null){
+                            binding.spinkro.setSelection((ii.toInt()))
+                        }
                     }
                 }
             }
         }
-//        binding.spinkro.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-//                val nm = parent?.getItemAtPosition(position).toString()
-//                binding.examtxt.text = nm
-//                Log.d("patt","item selected listener chl gya")
-//                val usrid = auth.currentUser?.uid
-//                usrid?.let { uid ->
-//                    db.reference.child("users").child(uid).updateChildren(
-//                        mapOf("i" to position, "name_of_exam" to nm)
-//                    )
-//
-//                }
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//                // Handle case when nothing is selected
-//            }
-//        }
+
+        binding.spinkro.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                nmnm = parent?.getItemAtPosition(position).toString()
+                nnn= position
+                Log.d("patt","item selected listener chl gya")
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle case when nothing is selected
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -134,10 +125,20 @@ class examfrag : Fragment() {
                 val usrid = auth.currentUser?.uid
                 usrid?.let { uid ->
                     db.reference.child("users").child(uid).updateChildren(
-                        mapOf("d" to day, "m" to month, "y" to year, "dl" to dl)
+                        mapOf("d" to day, "m" to month, "y" to year, "dl" to dl, "i" to nnn, "name_of_exam" to nmnm)
                     )
 
                 }
+                binding.textView65.text = dl.toString()
+                binding.textView17.text = " " + year.toString()
+                binding.textView16.text = "${day} ${monthsList[month]} ${year}"
+                if (nnn == 0 || nnn == 2) {
+                    binding.imageView13.setImageResource(R.drawable.ntta)
+                } else {
+                    binding.imageView13.setImageResource(R.drawable.adv)
+                }
+                binding.examtxt.text =nmnm.toString()
+                binding.spinkro.setSelection((nnn.toInt()))
             },
             LocalDate.now().year,
             LocalDate.now().monthValue - 1,
