@@ -19,7 +19,7 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 class examfrag : Fragment() {
-    data class exdate(val d: Int?, val m: Int?, val y: Int?, val dl: Long?)
+    data class exdate(val d: Int?, val m: Int?, val y: Int?)
     data class examname(val i: Int?, val name_of_exam: String?)
 
     var nnn:Int = -1
@@ -64,15 +64,22 @@ class examfrag : Fragment() {
                     val d = snp.child("d").value
                     val m = snp.child("m").value
                     val y = snp.child("y").value
-                    val dl = snp.child("dl").value
                     val i: Any? = snp.child("i").value
                     val name_of_exam = snp.child("name_of_exam").value
-                    Log.d("patt", "data on server : $d $m $y $dl $i $name_of_exam")
-                    if (d!=null && y!=null && m!=null && dl!=null && i!=null && name_of_exam!=null){
+                    Log.d("patt", "data on server : $d $m $y  $i $name_of_exam")
+                    if (d!=null && y!=null && m!=null && i!=null && name_of_exam!=null){
                         Log.d("patt","data on server not null")
-                        binding.textView65.text = dl.toString()
+
+
                         binding.textView17.text = " " + y.toString()
                         val mm = m.toString()
+                        val yy = y.toString()
+                        val dd = d.toString()
+                        val dl = ChronoUnit.DAYS.between(
+                            LocalDate.now(),
+                            LocalDate.of(yy.toInt(), mm.toInt() + 1, dd.toInt())
+                        )
+                        binding.textView65.text = dl.toString()
                         val ii = i.toString()
                         Log.d("patt","mm $mm")
                         if (mm!=null){
@@ -125,7 +132,7 @@ class examfrag : Fragment() {
                 val usrid = auth.currentUser?.uid
                 usrid?.let { uid ->
                     db.reference.child("users").child(uid).updateChildren(
-                        mapOf("d" to day, "m" to month, "y" to year, "dl" to dl, "i" to nnn, "name_of_exam" to nmnm)
+                        mapOf("d" to day, "m" to month, "y" to year, "i" to nnn, "name_of_exam" to nmnm)
                     )
 
                 }
