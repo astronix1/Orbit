@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapp.com.example.myapp.planner_data
 import com.example.myapp.databinding.ActivityPlannerBinding
 
 class planner : AppCompatActivity() {
     private lateinit var recyclerview: RecyclerView
     private lateinit var binding: ActivityPlannerBinding
+    private lateinit var datalist: ArrayList<planner_data>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,6 +23,8 @@ class planner : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        datalist=ArrayList<planner_data>()
+//        datalist.add(planner_data())
 
 
 

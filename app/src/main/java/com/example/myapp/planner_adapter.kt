@@ -20,6 +20,6 @@ class planner_adapter(var datalist: ArrayList<planner_data>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: planner_item_viewholder, position: Int) {
-        TODO("Not yet implemented")
+//        TODO("Not yet implemented")
     }
 }

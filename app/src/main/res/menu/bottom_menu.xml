@@ -5,18 +5,18 @@
         android:id="@+id/item0"
         app:cnb_iconColor="@color/bg"
         android:title="Home"
-        android:icon="@drawable/home"/>
+        android:icon="@drawable/home11"/>
 
     <item
         android:id="@+id/item1"
         app:cnb_iconColor="@color/bg"
         android:title="Exam"
-        android:icon="@drawable/exam"/>
+        android:icon="@drawable/exam11"/>
 
     <item
         android:id="@+id/item2"
         app:cnb_iconColor="@color/bg"
         android:title="Account"
-        android:icon="@drawable/account"/>
+        android:icon="@drawable/profile11"/>
 
 </menu>
