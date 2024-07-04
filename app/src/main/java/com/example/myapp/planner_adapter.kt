@@ -1,23 +1,32 @@
 package com.example.myapp.com.example.myapp
 
+import android.app.AlertDialog
+import android.app.TimePickerDialog
+import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapp.R
 import com.example.myapp.databinding.ItemListBinding
+import com.google.firebase.database.collection.LLRBNode
+import java.util.Calendar
 
 
-class planner_adapter(var datalist: ArrayList<planner_data>): RecyclerView.Adapter<planner_adapter.planner_item_viewholder>() {
+class planner_adapter(var datalist: ArrayList<planner_data>,private val context: Context): RecyclerView.Adapter<planner_adapter.planner_item_viewholder>() {
     inner class planner_item_viewholder(var binding:ItemListBinding): RecyclerView.ViewHolder(binding.root)
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): planner_item_viewholder {
-        var binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return planner_item_viewholder(binding)
-    }
+
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): planner_item_viewholder {
+    val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return planner_item_viewholder(binding)
+}
 
     override fun getItemCount(): Int {
        return datalist.size
@@ -37,63 +46,126 @@ class planner_adapter(var datalist: ArrayList<planner_data>): RecyclerView.Adapt
     }
 
     private fun enable_edit(holder: planner_item_viewholder, item: planner_data) {
-        val editSubject = EditText(holder.itemView.context).apply{
-            setText(holder.binding.subtxt.text)
+        val redd = ContextCompat.getColor(context, R.color.redd)
+        holder.binding.subtxt.setTextColor(redd)
+        holder.binding.descptxt.setTextColor(redd)
+        holder.binding.topictxt.setTextColor(redd)
+        holder.binding.time1txt.setTextColor(redd)
+        holder.binding.time2txt.setTextColor(redd)
+        holder.binding.textView19.setTextColor(redd)
+        holder.binding.subtxt.setHintTextColor(redd)
+        holder.binding.descptxt.setHintTextColor(redd)
+        holder.binding.topictxt.setHintTextColor(redd)
+        holder.binding.time1txt.setHintTextColor(redd)
+        holder.binding.time2txt.setHintTextColor(redd)
+        holder.binding.textView19.setHintTextColor(redd)
+        holder.binding.subtxt.setOnClickListener {
+
+            showEditDialog(holder, item, "Subject", holder.binding.subtxt)
         }
-        val editDescription = EditText(holder.itemView.context).apply{
-            setText(holder.binding.descptxt.text)
+
+        holder.binding.descptxt.setOnClickListener {
+            showEditDialog(holder, item, "Description", holder.binding.descptxt)
         }
-        val editTopic = EditText(holder.itemView.context).apply{
-            setText(holder.binding.topictxt.text)
+
+        holder.binding.topictxt.setOnClickListener {
+            showEditDialog(holder, item, "Topic", holder.binding.topictxt)
         }
-        holder.binding.time1txt.setOnClickListener{
-            openT(holder, item)
+
+        holder.binding.time1txt.setOnClickListener {
+            openT(holder, item, 0)
         }
+
         holder.binding.time2txt.setOnClickListener {
-            openT(holder, item)
+            openT(holder, item, 1)
         }
-        holder.binding.editSave.text="Save"
+        holder.binding.editSave.text = "Save"
         holder.binding.editSave.setOnClickListener {
-            holder.binding.editSave.setOnClickListener {
-                saveChanges(holder, item, editSubject, editDescription, editTopic)
-            }
+            saveChanges(holder, item)
         }
     }
 
-    private fun saveChanges(
+    private fun showEditDialog(
         holder: planner_item_viewholder,
         item: planner_data,
-        editSubject: EditText,
-        editDescription: EditText,
-        editTopic: EditText
+        s: String,
+        txtview: TextView
     ) {
-        item.sub = editSubject.text.toString()
-        item.des = editDescription.text.toString()
-        item.topic = editTopic.text.toString()
+        val editText = EditText(context)
+        if (txtview is TextView) {
+            editText.setText(txtview.text)
+        }
+        AlertDialog.Builder(context)
+            .setTitle("Edit $s")
+            .setView(editText)
+            .setPositiveButton("Ok") {dialog, _ ->
+                val new = editText.text.toString().trim()
+                when (s){
+                    "Subject" -> {
+                        item.sub = new
+                        holder.binding.subtxt.text = new
+                    }
+                    "Description" -> {
+                        item.des = new
+                        holder.binding.descptxt.text = new
+                    }
+                    "Topic" -> {
+                        item.topic = new
+                        holder.binding.topictxt.text = new
+                    }
+                }
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") {dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
 
-        holder.binding.subtxt.text = item.sub
-        holder.binding.descptxt.text = item.des
-        holder.binding.topictxt.text = item.topic
+    }
 
-        val parent = editSubject.parent as ViewGroup
-        val index1 = parent.indexOfChild(editSubject)
-        parent.removeView(editSubject)
-        parent.addView(holder.binding.subtxt, index1)
-        val index2 = parent.indexOfChild(editDescription)
-        parent.removeView(editDescription)
-        parent.addView(holder.binding.descptxt, index2)
-        val index3 = parent.indexOfChild(editTopic)
-        parent.removeView(editTopic)
-        parent.addView(holder.binding.topictxt, index3)
-        holder.binding.time1txt.setOnClickListener (null)
+    private fun saveChanges(holder: planner_item_viewholder, item: planner_data) {
+        val blackk = Color.BLACK
+        val grey = ContextCompat.getColor(context, R.color.descolor)
+        holder.binding.subtxt.setTextColor(blackk)
+        holder.binding.descptxt.setTextColor(grey)
+        holder.binding.topictxt.setTextColor(blackk)
+        holder.binding.time1txt.setTextColor(blackk)
+        holder.binding.time2txt.setTextColor(blackk)
+        holder.binding.textView19.setTextColor(blackk)
+        holder.binding.subtxt.setHintTextColor(blackk)
+        holder.binding.descptxt.setHintTextColor(grey)
+        holder.binding.topictxt.setHintTextColor(blackk)
+        holder.binding.time1txt.setHintTextColor(blackk)
+        holder.binding.time2txt.setHintTextColor(blackk)
+        holder.binding.textView19.setHintTextColor(blackk)
+
+        holder.binding.time1txt.setOnClickListener(null)
         holder.binding.time2txt.setOnClickListener(null)
+        holder.binding.subtxt.setOnClickListener(null)
+        holder.binding.descptxt.setOnClickListener(null)
+        holder.binding.topictxt.setOnClickListener(null)
+
         holder.binding.editSave.text = "Edit"
         holder.binding.editSave.setOnClickListener {
             enable_edit(holder, item)
         }
     }
 
-    private fun openT(holder: planner_item_viewholder, item: planner_data) {
-        TODO("Not yet implemented")
+    private fun openT(holder: planner_item_viewholder, item: planner_data, i: Int) {
+        val currentTime= Calendar.getInstance()
+
+        TimePickerDialog(context, TimePickerDialog.OnTimeSetListener{ view, hourOfDay, minute ->
+        if (i==0){
+            item.hour1=hourOfDay
+            item.minute1=minute
+            holder.binding.time1txt.text="${item.hour1}:${item.minute1}"
+        }
+            else{
+                item.hour2=hourOfDay
+                item.minute2=minute
+                holder.binding.time2txt.text="${item.hour2}:${item.minute2}"
+            }
+
+        },currentTime.get(Calendar.HOUR_OF_DAY),currentTime.get(Calendar.MINUTE),false).show()
     }
 }

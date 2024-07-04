@@ -11,9 +11,9 @@
         android:layout_marginStart="@dimen/_11sdp"
         android:layout_marginEnd="@dimen/_11sdp"
         android:layout_marginBottom="@dimen/_11sdp"
-        android:backgroundTint="#FFF"
-        android:elevation="5dp"
-        app:cardCornerRadius="6dp"
+        android:backgroundTint="#D7D0FF"
+        app:cardElevation="@dimen/_3sdp"
+        app:cardCornerRadius="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="08:00"
+                android:text="00:00"
                 android:textColor="#000"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +45,9 @@
                 android:layout_marginTop="@dimen/_13sdp"
                 android:fontFamily="@font/raleway_bold"
 
-                android:text="Mathematics"
+                android:hint="Subject:"
                 android:textColor="#000"
+                android:textColorHint="#000"
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/time1txt" />
@@ -58,10 +59,11 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="Topic:Calculus"
+                android:hint="Topic:"
                 android:textColor="#000"
-                android:textSize="@dimen/_12ssp"
 
+                android:textColorHint="#000"
+                android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/subtxt" />
 
@@ -72,8 +74,9 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="Description: Practicing integrals of definite type"
+                android:hint="Description:"
                 android:textColor="#5B5B5B"
+                android:textColorHint="#5B5B5B"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/topictxt" />

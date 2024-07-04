@@ -5,64 +5,69 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="#6750A4"
     tools:context=".planner">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/raleway_bold"
-        android:text="Study Planner"
-        android:textColor="#000"
-        android:textSize="@dimen/_23ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:backgroundTint="#5664F5"
-        android:fontFamily="@font/raleway_bold"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Add Session"
-        android:textColor="#FFF"
-        android:textSize="@dimen/_11ssp"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:rippleColor="#7986CB" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_24sdp"
-        android:fontFamily="@font/raleway_bold"
-        android:text="Today's Schedule"
-        android:textColor="#000"
-        android:textSize="@dimen/_16ssp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:background="#FFF"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Study Planner"
+            android:textColor="#000"
+            android:textSize="@dimen/_23ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginTop="@dimen/_65sdp"
-        android:paddingBottom="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:listitem="@layout/item_list" />
+        <Button
+            android:id="@+id/addcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:backgroundTint="#5664F5"
+            android:fontFamily="@font/raleway_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Add Session"
+            android:textColor="#FFF"
+            android:textSize="@dimen/_11ssp"
+            app:cornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:rippleColor="#7986CB" />
 
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Today's Schedule"
+            android:textColor="#000"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plannerRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="@dimen/_65sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:listitem="@layout/item_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

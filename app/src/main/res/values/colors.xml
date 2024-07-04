@@ -4,6 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg">#8C5CB3</color>
     <color name="slogancolor">#1E1E1E</color>
+    <color name="descolor">#5B5B5B</color>
+    <color name="redd">#A94A44</color>
+
 
 
 </resources>
