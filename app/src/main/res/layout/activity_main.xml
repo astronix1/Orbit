@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6750A4"
+    android:background="@color/bg"
     tools:context=".MainActivity">
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/menubar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

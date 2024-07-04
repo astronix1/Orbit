@@ -5,14 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6750A4"
+    android:background="@color/bg"
     tools:context=".planner">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="#FFF"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFF">
+
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
