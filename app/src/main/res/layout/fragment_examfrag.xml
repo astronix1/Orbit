@@ -13,12 +13,13 @@
         android:layout_width="@dimen/_231sdp"
         android:layout_height="@dimen/_23sdp"
         android:layout_marginTop="@dimen/_23sdp"
+        android:elevation="5dp"
         android:background="@drawable/rectangle"
-        android:backgroundTint="@color/bg"
+        android:backgroundTint="#5664F5"
         android:gravity="center_vertical"
-        android:popupBackground="#3B3B3B"
         android:outlineAmbientShadowColor="#000"
         android:paddingStart="@dimen/_8sdp"
+        android:popupBackground="#FFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_23sdp"
-        android:fontFamily="@font/raleway_bold"
+        android:fontFamily="@font/raleway_semibold"
         android:text="Click on the below button to\nenter the date of your exam"
         android:textColor="#000"
         android:textSize="@dimen/_12ssp"
@@ -38,29 +39,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinkro" />
 
-    <Button
-        android:id="@+id/datep"
-        android:layout_width="@dimen/_115sdp"
-        android:layout_height="@dimen/_38sdp"
-        android:layout_marginTop="@dimen/_23sdp"
-        android:backgroundTint="@color/bg"
-        android:fontFamily="@font/inter_bold"
-        android:text="Date"
-        android:textColor="#FFF"
-        android:textSize="@dimen/_14sdp"
-        app:cornerRadius="@dimen/_38sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtview"
-        app:rippleColor="#50FFFFFF" />
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_31sdp"
-        android:fontFamily="@font/raleway_bold"
+        android:fontFamily="@font/raleway_semibold"
         android:text="Choose Your Exam"
         android:textColor="#000"
         android:textSize="@dimen/_12ssp"
@@ -71,12 +55,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_154sdp"
         android:layout_height="@dimen/_231sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+
         app:cardCornerRadius="@dimen/_13sdp"
         app:cardElevation="@dimen/_4sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datep" >
+        app:layout_constraintTop_toBottomOf="@+id/datep">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -140,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_27sdp"
                 android:layout_marginTop="@dimen/_11sdp"
+                android:fontFamily="@font/inter_medium"
                 android:text="0"
                 android:textColor="#F8393F"
                 android:textSize="@dimen/_57ssp"
@@ -161,5 +147,15 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/datep"
+        android:layout_width="@dimen/_52sdp"
+        android:layout_height="@dimen/_52sdp"
+        android:layout_marginTop="@dimen/_23sdp"
+        android:src="@drawable/calendar789"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import com.example.myapp.databinding.FragmentExamfragBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -39,7 +41,7 @@ class examfrag : Fragment() {
     ): View? {
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance(Constants.dburl)
-        srf = requireContext().getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
+        srf = requireContext().getSharedPreferences("examData", Context.MODE_PRIVATE)
         binding = FragmentExamfragBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -49,10 +51,24 @@ class examfrag : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val spinner_list: List<String> = listOf("JEE Main", "JEE Adv", "NEET")
-        val arrayAdapter =
-            ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, spinner_list)
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val arrayAdapter = object : ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, spinner_list) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent) as TextView
+                view.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                view.typeface = resources.getFont(R.font.raleway_semibold)
+                return view
+            }
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getDropDownView(position, convertView, parent) as TextView
+                view.typeface = resources.getFont(R.font.raleway_semibold)
+                view.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                return view
+            }
+        }
+
         binding.spinkro.adapter = arrayAdapter
+
 
         binding.datep.setOnClickListener {
             Log.d("patt","opend ke uppr")
