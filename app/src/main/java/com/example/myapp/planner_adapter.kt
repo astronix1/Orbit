@@ -3,6 +3,7 @@ package com.example.myapp.com.example.myapp
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapp.R
 import com.example.myapp.databinding.ItemListBinding
 import com.google.firebase.database.collection.LLRBNode
+import com.google.gson.Gson
 import java.util.Calendar
 
 
@@ -33,11 +35,19 @@ class planner_adapter(var datalist: ArrayList<planner_data>,private val context:
     }
 
     override fun onBindViewHolder(holder: planner_item_viewholder, position: Int) {
-        holder.binding.subtxt.text=datalist.get(position).sub
-        holder.binding.descptxt.text=datalist.get(position).des
-        holder.binding.topictxt.text=datalist.get(position).topic
-        holder.binding.time1txt.text="${datalist.get(position).hour1}:${datalist.get(position).minute1}"
-        holder.binding.time2txt.text="${datalist.get(position).hour2}:${datalist.get(position).minute2}"
+//        holder.binding.subtxt.text=datalist.get(position).sub
+//        holder.binding.descptxt.text=datalist.get(position).des
+//        holder.binding.topictxt.text=datalist.get(position).topic
+//        holder.binding.time1txt.text="${datalist.get(position).hour1}:${datalist.get(position).minute1}"
+//        holder.binding.time2txt.text="${datalist.get(position).hour2}:${datalist.get(position).minute2}"
+        val srf = context.getSharedPreferences("planner", Context.MODE_PRIVATE)
+        val json = srf.getString("card${position}", null)
+        val item = Gson().fromJson(json, planner_data::class.java)
+        holder.binding.subtxt.text = item.sub
+        holder.binding.descptxt.text = item.des
+        holder.binding.topictxt.text = item.topic
+        holder.binding.time1txt.text = "${item.hour1}:${item.minute1}"
+        holder.binding.time2txt.text = "${item.hour2}:${item.minute2}"
 
         holder.binding.editSave.setOnClickListener {
             enable_edit(holder, datalist.get(position))
@@ -59,6 +69,13 @@ class planner_adapter(var datalist: ArrayList<planner_data>,private val context:
         holder.binding.time1txt.setHintTextColor(redd)
         holder.binding.time2txt.setHintTextColor(redd)
         holder.binding.textView19.setHintTextColor(redd)
+        holder.binding.deleteItem.visibility = View.VISIBLE
+        holder.binding.deleteItem.setOnClickListener {
+            val position = holder.adapterPosition
+            datalist.removeAt(position)
+            saveChanges(holder, item)
+            notifyItemRemoved(position)
+        }
         holder.binding.subtxt.setOnClickListener {
 
             showEditDialog(holder, item, "Subject", holder.binding.subtxt)
@@ -96,7 +113,7 @@ class planner_adapter(var datalist: ArrayList<planner_data>,private val context:
             editText.setText(txtview.text)
         }
         AlertDialog.Builder(context)
-            .setTitle("Edit $s")
+            .setTitle("$s")
             .setView(editText)
             .setPositiveButton("Ok") {dialog, _ ->
                 val new = editText.text.toString().trim()
@@ -138,12 +155,18 @@ class planner_adapter(var datalist: ArrayList<planner_data>,private val context:
         holder.binding.time1txt.setHintTextColor(blackk)
         holder.binding.time2txt.setHintTextColor(blackk)
         holder.binding.textView19.setHintTextColor(blackk)
-
+        holder.binding.deleteItem.visibility = View.GONE
+        holder.binding.deleteItem.setOnClickListener(null)
         holder.binding.time1txt.setOnClickListener(null)
         holder.binding.time2txt.setOnClickListener(null)
         holder.binding.subtxt.setOnClickListener(null)
         holder.binding.descptxt.setOnClickListener(null)
         holder.binding.topictxt.setOnClickListener(null)
+
+        val editor = context.getSharedPreferences("planner", Context.MODE_PRIVATE).edit()
+        val json = Gson().toJson(datalist.get(holder.adapterPosition))
+        editor.putString("card${holder.adapterPosition}", json)
+        editor.apply()
 
         holder.binding.editSave.text = "Edit"
         holder.binding.editSave.setOnClickListener {

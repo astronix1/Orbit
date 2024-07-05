@@ -122,7 +122,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/deleteItem"
+                android:visibility="gone"
                 android:layout_width="@dimen/_26sdp"
                 android:layout_height="@dimen/_26sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
