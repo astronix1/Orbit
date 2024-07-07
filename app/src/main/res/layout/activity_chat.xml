@@ -1,40 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="#8BABD8"
     android:layout_height="match_parent"
+    android:background="#8BABD8"
+
     tools:context=".ChatActivity">
 
-    <EditText
-        android:id="@+id/message_field"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_37sdp"
-        android:layout_marginStart="@dimen/_3sdp"
-        android:layout_marginEnd="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_3sdp"
-        android:background="@drawable/rect_txt"
-        android:fontFamily="@font/raleway_semibold"
-        android:hint="Message"
-        android:inputType="text"
-        android:paddingStart="@dimen/_13sdp"
-        android:paddingEnd="@dimen/_13sdp"
-        android:textColor="#000"
-        android:textColorHint="#686868"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="parent" />
+    <Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:elevation="10dp"
+        android:background="#8BABD8"
+        android:layout_height="@dimen/_40sdp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="@dimen/_37sdp"
-        android:layout_height="@dimen/_37sdp"
-        android:layout_marginEnd="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_3sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/send123" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent"/>
+    </Toolbar>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/message_field"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_37sdp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+
+            android:background="@drawable/rect_txt1"
+            android:fontFamily="@font/raleway_semibold"
+            android:hint="Message"
+            android:inputType="textMultiLine"
+            android:paddingStart="@dimen/_13sdp"
+            android:paddingEnd="@dimen/_13sdp"
+            android:textColor="#000"
+            android:textColorHint="#686868"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toStartOf="@+id/sendbtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendbtn"
+            android:layout_width="@dimen/_37sdp"
+            android:layout_height="@dimen/_37sdp"
+            app:srcCompat="@drawable/send123"
+
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            tools:layout_editor_absoluteX="349dp"
+            tools:layout_editor_absoluteY="670dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:background="#FFF"
+        android:layout_above="@id/constraintLayout"
+        android:layout_below="@id/toolbar"
+        tools:listitem="@layout/chat_item"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
