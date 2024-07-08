@@ -29,7 +29,7 @@
         android:layout_height="@dimen/_31sdp"
         android:layout_marginStart="@dimen/_11sdp"
         android:layout_marginTop="@dimen/_31sdp"
-        android:src="@drawable/avatar_mod"
+        android:src="@drawable/avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

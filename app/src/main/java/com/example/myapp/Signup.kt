@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.shashank.sony.fancytoastlib.FancyToast
 
 class Signup : AppCompatActivity() {
-    data class User(val name: String = "", val username: String = "")
+    data class User(val name: String = "", val username: String = "", val mentor:String?)
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var auth: FirebaseAuth
@@ -57,7 +57,7 @@ class Signup : AppCompatActivity() {
                                     if (signInTask.isSuccessful) {
                                         val usrId = auth.currentUser?.uid
                                         if (usrId != null) {
-                                            val user = User(name, username)
+                                            val user = User(name, username, "not")
                                             db.reference.child("users").child(usrId).setValue(user)
                                                 .addOnSuccessListener {
                                                     showToast("Registration successful!", FancyToast.SUCCESS)

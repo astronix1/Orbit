@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -23,8 +22,6 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 class examfrag : Fragment() {
-    data class exdate(val d: Int?, val m: Int?, val y: Int?)
-    data class examname(val i: Int?, val name_of_exam: String?)
 
     var nnn:Int = -1
     var nmnm:String =""

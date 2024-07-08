@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:paddingTop="@dimen/_5sdp"
     android:layout_height="wrap_content">
 
     <TextView
@@ -10,13 +11,13 @@
         android:layout_height="match_parent"
         android:text="Chatttttting\n Hi \n ji"
         android:gravity="center"
+        android:textSize="14sp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         android:paddingStart="2dp"
         android:paddingEnd="2dp"
-        android:fontFamily="@font/inter_bold"
+        android:fontFamily="@font/raleway_semibold"
         android:background="@drawable/rect2"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
