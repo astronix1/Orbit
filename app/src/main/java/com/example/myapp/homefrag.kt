@@ -37,6 +37,9 @@ class homefrag : Fragment() {
         binding.plannerCard.setOnClickListener{
             startActivity(Intent(requireActivity(), planner::class.java))
         }
+        binding.mentorshipCard.setOnClickListener{
+            startActivity(Intent(requireActivity(),ChatActivity::class.java ))
+        }
         val srf = requireActivity().getSharedPreferences("data_orbit", Context.MODE_PRIVATE)
         val editor = srf.edit()
         val name = srf.getString("name",null)

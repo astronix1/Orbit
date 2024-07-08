@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BABD8"
-
+    android:background="#42495F"
     tools:context=".ChatActivity">
 
     <Toolbar
@@ -14,7 +13,7 @@
         android:id="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:elevation="10dp"
-        android:background="#8BABD8"
+        android:background="#42495F"
         android:layout_height="@dimen/_40sdp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,7 +27,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:paddingTop="10dp"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -36,7 +35,7 @@
             android:id="@+id/message_field"
             android:layout_width="0dp"
             android:layout_height="@dimen/_37sdp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="3dp"
             android:layout_marginEnd="5dp"
 
             android:background="@drawable/rect_txt1"
@@ -67,11 +66,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:background="#FFF"
-        android:layout_above="@id/constraintLayout"
+        android:id="@+id/recycler_view"
         android:layout_below="@id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/constraintLayout"
         tools:listitem="@layout/chat_item"
-        android:layout_height="wrap_content" />
-
+        android:background="#849EBF"/>
 
 </RelativeLayout>
