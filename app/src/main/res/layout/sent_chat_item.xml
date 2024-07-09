@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:paddingTop="@dimen/_5sdp"
-    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_5sdp"
     android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/rect2"
-        android:fontFamily="@font/raleway_semibold"
-        android:gravity="center"
-        android:paddingStart="2dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="2dp"
-        android:paddingBottom="2dp"
         android:text="Chatttttting\n Hi \n ji"
-        android:textColor="#000"
+        android:gravity="center"
         android:textSize="@dimen/_10ssp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="7dp" />
+        android:paddingTop="2dp"
+        android:textColor="#FFF"
+        android:paddingBottom="2dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:background="@drawable/rect3"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
