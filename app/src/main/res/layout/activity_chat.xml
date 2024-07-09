@@ -101,7 +101,6 @@
         android:layout_below="@id/toolbar"
         android:layout_height="wrap_content"
         android:layout_above="@id/constraintLayout"
-        tools:listitem="@layout/chat_item"
         android:background="#849EBF"/>
 
 </RelativeLayout>

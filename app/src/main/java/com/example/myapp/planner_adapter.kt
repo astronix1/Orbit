@@ -35,11 +35,6 @@ class planner_adapter(var datalist: ArrayList<planner_data>,private val context:
     }
 
     override fun onBindViewHolder(holder: planner_item_viewholder, position: Int) {
-//        holder.binding.subtxt.text=datalist.get(position).sub
-//        holder.binding.descptxt.text=datalist.get(position).des
-//        holder.binding.topictxt.text=datalist.get(position).topic
-//        holder.binding.time1txt.text="${datalist.get(position).hour1}:${datalist.get(position).minute1}"
-//        holder.binding.time2txt.text="${datalist.get(position).hour2}:${datalist.get(position).minute2}"
         val srf = context.getSharedPreferences("planner", Context.MODE_PRIVATE)
         val json = srf.getString("card${position}", null)
         val item = Gson().fromJson(json, planner_data::class.java)
