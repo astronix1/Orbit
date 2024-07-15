@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout android:layout_width="154dp"
+    android:layout_height="231dp"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Days Left"
+        android:textColor="#989AA6"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/ntta"/>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="21dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="1 Jan 2023"
+        android:textColor="#989AA6"
+        android:textSize="14sp"
+        android:layout_below="@id/examtxt" />
+
+    <TextView
+        android:id="@+id/examtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="22dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="JEE Adv"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_below="@id/textView65" />
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="0"
+        android:textColor="#F8393F"
+        android:textSize="57sp"
+        android:layout_below="@id/textView15"/>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="  "
+        android:layout_marginTop="22dp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_toRightOf="@id/examtxt"
+        android:layout_below="@id/textView65" />
+
+</RelativeLayout>
